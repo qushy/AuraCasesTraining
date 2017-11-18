@@ -74,7 +74,10 @@ object DimensionDao {
     * @return
     */
   def saveDimensionData(dimension: Dimension): Int = {
-    val sql: String = "insert into sparkcore_dimension_data(dimeid,`day`,pv,uv,ip,time) values (#{dimeId},#{day},#{pv},#{uv},#{ip},#{time}) on duplicate key update pv = values(pv),uv = values(uv),ip = values(ip),time = values(time)"
+    val sql: String = "insert into sparkcore_dimension_data(dimeid,`day`,pv,uv,ip,time,nuv) " +
+      "values " +
+      "(#{dimeId},#{day},#{pv},#{uv},#{ip},#{time},#{nuv}) " +
+      "on duplicate key update pv = values(pv),uv = values(uv),ip = values(ip),time = values(time),nuv = values(nuv)"
     BasicSimpleDao.saveObject(sql, dimension)
   }
 

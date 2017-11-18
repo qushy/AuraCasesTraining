@@ -68,7 +68,7 @@ object SearchAnalysis {
   }
 
   def main(args: Array[String]): Unit = {
-    val dayStr = if (args.length > 0) args(0) else "2016-12-01"
+    val dayStr = if (args.length > 0) args(0) else "2016-12-04"
     Config.setDay(dayStr)
     runAnalysis()
   }

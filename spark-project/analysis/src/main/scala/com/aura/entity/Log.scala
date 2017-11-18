@@ -17,6 +17,8 @@ class Log extends Serializable {
   @BeanProperty var Url: String = ""
   @BeanProperty var Title: String = ""
 
+  @BeanProperty var IsNewUser: Boolean = false
+
   @BeanProperty var wd: Wd = null
 
   def getPagetype(): Char = {

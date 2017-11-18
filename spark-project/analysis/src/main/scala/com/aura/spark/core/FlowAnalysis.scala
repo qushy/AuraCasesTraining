@@ -34,6 +34,11 @@ object FlowAnalysis {
         dimension.Ts = log.Ts
         dimension.uvs += log.Uuid
         dimension.ips += log.Ip
+        if(log.IsNewUser){
+          dimension.nUvs+=log.Uuid;
+        }else{
+          println(log.Uuid);
+        }
         (dimension)
       }
     ).cache()
@@ -44,8 +49,10 @@ object FlowAnalysis {
     val reduce = map.reduce((m, n) => {
       m.pv += n.pv
       m.uvs ++= n.uvs
+      m.nUvs ++= n.nUvs
       m.ips ++= n.ips
       m.uv = m.uvs.size
+      m.nuv = m.nUvs.size
       m.ip = m.ips.size
       (m)
     })

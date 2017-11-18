@@ -13,7 +13,7 @@
 	</select>
 	<!-- Spark Core 流量统计-->
 	<select id="getMemoryList" resultType="Dimension">
-		SELECT `day`,pv,uv,ip,`time` FROM `sparkcore_dimension_data` 
+		SELECT `day`,pv,uv,nuv,ip,`time` FROM `sparkcore_dimension_data`
 		WHERE dimeid = 0 AND `day` BETWEEN '2016-12-01' AND '2016-12-07'
 	</select>
 	<!-- Spark Core 维度信息 -->

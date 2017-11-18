@@ -10,6 +10,7 @@ public class Dimension {
 	private Integer dimeId;
 	private Integer pv;
 	private Integer uv;
+	private Integer nuv;
 	private Integer ip;
 	private Long time;
 	
@@ -101,5 +102,12 @@ public class Dimension {
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
+    public Integer getNuv() {
+        return nuv;
+    }
+
+    public void setNuv(Integer nuv) {
+        this.nuv = nuv;
+    }
 }
