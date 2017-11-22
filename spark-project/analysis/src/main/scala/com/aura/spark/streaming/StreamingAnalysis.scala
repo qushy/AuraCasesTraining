@@ -120,6 +120,7 @@ object StreamingAnalysis {
 
   /**
     * 解析日志并过滤其中的错误内容
+    * 从kafka中读取过来的数据，是【key,value】的。本例中key为空，value是一行json数据。所以，取第二个元素。qushaoyan
     */
   def getFilterLog(stream: InputDStream[(String, String)]): DStream[Log] = {
     stream.flatMap(line => parseLog(line._2))

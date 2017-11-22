@@ -28,13 +28,19 @@ object GenderModel {
     val arr = FileUtil.getTrainingArrayBuffer(list)
 
     val data = sc.parallelize(arr)
-    val tf = new HashingTF(numFeatures = 10000)
+    val tf = new HashingTF(numFeatures = 10000)//矩阵，10000个feture
+
     val parsedData = data.map{ line =>
       val parts = line.split(',')
       LabeledPoint(parts(0).toDouble, tf.transform(parts(1).split(" ")))
     }.cache()
 
-    val model = SVMWithSGD.train(parsedData, 100)
+//    parsedData.foreach(x=>{
+//      println(x.label)
+//      println(x.features)
+//    })
+
+    val model = SVMWithSGD.train(parsedData, 100)//100，表示迭代次数
 
     // 保存模型
     model.save(sc, BaseModelUtil.modelPath("svm"))

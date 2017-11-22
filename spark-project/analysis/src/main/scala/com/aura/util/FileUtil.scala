@@ -43,7 +43,7 @@ object FileUtil {
 		*/
 	def getTrainingArrayBuffer(list: ListBuffer[Training]): ArrayBuffer[String] = {
 		val arr = new ArrayBuffer[String]
-		val kwc: KeyWordComputer = new KeyWordComputer(10)
+		val kwc: KeyWordComputer = new KeyWordComputer(10)//分词库，KeyWordComputer，qushaoyan
 		for(i <- 0 until list.size) {
 			val training: Training = list(i)
 			val result: Collection[Keyword] = kwc.computeArticleTfidf(training.title)

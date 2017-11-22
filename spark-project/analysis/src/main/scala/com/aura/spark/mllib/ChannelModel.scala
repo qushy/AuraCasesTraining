@@ -35,6 +35,7 @@ object ChannelModel {
       LabeledPoint(parts(0).toDouble, tf.transform(parts(1).split(" ")))
     }.cache()
 
+    //lambda表达的是特征之间的关联性；modeltype表达是采用贝叶斯下的具体哪个算法
     val model = NaiveBayes.train(parsedData, lambda = 1.0, modelType = "multinomial")
 
     // 保存模型
